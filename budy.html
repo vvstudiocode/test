@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Joint Guide</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script>
+        // =========================================================================
+        // === 內容修改區 (Content Editing Area) ===
+        // =========================================================================
+        // - title: 大標題 (Main Title)
+        // - subtitle: 副標題 (Subtitle)
+        // - description: 產品描述 (Product Description)
+        // - features: 產品特點列表 (List of Product Features)
+        // - carousel: 輪播圖片 (Carousel Images)
+        //   - link: 點擊圖片後前往的網址 (URL to go to when image is clicked)
+        //   - src: 圖片本身的網址 (URL of the image itself)
+        //   - alt: 圖片的替代文字 (Alternative text for the image)
+        // =========================================================================
+        const jointContentData = {
+            "shoulder": { // 肩關節
+                title: "肩關節", // 大標題
+                subtitle: "Shoulder Joint", // 副標題
+                description: "是人體活動範圍最大、靈活度最高的關節之一，也是上肢所有動作的樞紐。幾乎能做出所有方向的運動與力量的核心來源", // 產品描述
+                featuresTitle: "", // 特點列表標題
+                features: [ // 特點列表 (每個項目一行). "這裡請寫上內容"  每個""後面要一個,"最後一段的內容不需要,
+  
+
+
+                ],
+                carousel: [ // 輪播圖片 (可以新增多張)
+                    {
+                        link: "https://www.belexmedical.com/categories/shoulder-joint", // 圖片連結
+                        src: "https://img.shoplineapp.com/media/image_clips/690849e5a8d75c0010cef8ef/original.jpg?1762150885=&owner_id=688b03e777c215003d63fa74", // 圖片網址
+                        alt: "肩膀植入物正面視圖" // 圖片替代文字 (用於SEO和無障礙)
+                    },
+                ]
+            },
+            "spine": { // 胸腰關節
+                title: "胸腰關節",
+                subtitle: "Thoracolumbar Joint",
+                description: "脊椎是人體的核心支柱，支撐著身體並保護神經，也承受身體的重量和工作的負荷，尤其「腰椎區段更是承受著最大的壓力」",
+                featuresTitle: "",
+                features: [
+                    
+                ],
+                carousel: [
+                    {
+                        link: "https://www.belexmedical.com/categories/thoracolumbar-joint",
+                        src: "https://img.shoplineapp.com/media/image_clips/690849e5d49031000cff6d3b/original.jpg?1762150885=&owner_id=688b03e777c215003d63fa74",
+                        alt: "脊椎植入物整體視圖"
+                    },
+                ]
+            },
+            "elbow": { // 肘關節
+                title: "肘關節",
+                subtitle: "Elbow Joint",
+                description: "是人體上肢中連接上臂和前臂的樞紐，是力量的傳導和活動性重要的關節，對日常生活至關重要",
+                featuresTitle: "",
+                features: [
+                   
+                ],
+                carousel: [
+                    {
+                        link: "https://www.belexmedical.com/categories/elbow-joint",
+                        src: "https://img.shoplineapp.com/media/image_clips/690849e5a3c3860016972eee/original.jpg?1762150885=&owner_id=688b03e777c215003d63fa74",
+                        alt: "手肘植入物分解圖"
+                    },
+                ]
+            },
+            "wrist-hand": { // 手腕關節
+                title: "手腕關節",
+                subtitle: "Wrist Joint",
+                description: "是由多個小關節組成能讓手進行多方向的動作，且周圍有豐富的神經與本體感覺受器，能執行高靈活度和高精細的控制動作",
+                featuresTitle: "",
+                features: [
+                  
+                ],
+                carousel: [
+                    {
+                        link: "https://www.belexmedical.com/categories/wrist-hand-joint",
+                        src: "https://img.shoplineapp.com/media/image_clips/690849e5d7e864000a2c93bb/original.jpg?1762150885=&owner_id=688b03e777c215003d63fa74",
+                        alt: "手腕植入物正面圖"
+                    },
+                ]
+            },
+            "pelvic-hip": { // 髖關節
+                title: "髖關節",
+                subtitle: "Hip Joint",
+                description: "是人體下肢最重要的負重和運動樞紐，也是身體兼具穩定性與高活動度，維持身體平衡的核心",
+                featuresTitle: "",
+                features: [
+                  
+                ],
+                carousel: [
+                    {
+                        link: "https://www.belexmedical.com/categories/hip-joint",
+                        src: "https://img.shoplineapp.com/media/image_clips/690849e5a90c82000c564d99/original.jpg?1762150885=&owner_id=688b03e777c215003d63fa74",
+                        alt: "髖關節植入物組件圖"
+                    },
+                ]
+            },
+            "knee": { // 膝關節
+                title: "膝關節",
+                subtitle: "Knee Joint",
+                description: "是人體最大最複雜的關節，「承受身體的重量、活動、緩衝與穩定作用」。是人體下肢的核心樞紐之一，當行走、跑步、跳躍、蹲下時，所承受的壓力會更大",
+                featuresTitle: "",
+                features: [
+                  
+                ],
+                carousel: [
+                    {
+                        link: "https://www.belexmedical.com/categories/knee-joint",
+                        src: "https://img.shoplineapp.com/media/image_clips/690849e56b10cd001212381f/original.jpg?1762150885=&owner_id=688b03e777c215003d63fa74",
+                        alt: "膝關節植入物三維模型圖"
+                    },
+                ]
+            },
+            "foot-ankle": { // 腳踝關節
+                title: "腳踝關節",
+                subtitle: "Foot & Ankle Joint",
+                description: "是人體「接觸地面的第一大承壓點」每一步都需要踝關節分配壓力，維持下肢的平衡，和支撐身體重量、走路、跑步、跳躍的穩定核心樞紐",
+                featuresTitle: "",
+                features: [
+                  
+                ],
+                carousel: [
+                    {
+                        link: "https://www.belexmedical.com/categories/foot-ankle-joint",
+                        src: "https://img.shoplineapp.com/media/image_clips/690849e5ec00760010d229a3/original.jpg?1762150885=&owner_id=688b03e777c215003d63fa74",
+                        alt: "腳踝植入物結構示意圖"
+                    },
+                ]
+            }
+        };
+    </script>
+
+    <style>
+        :root {
+            --main-bg-color: #f0f2f5; 
+            --left-menu-bg: #f0f2f5; 
+            --left-menu-text-color: #000000; 
+            --left-menu-num-color: #000000; 
+            --highlight-color: #c64b4b; 
+            --active-bg-color: rgba(255, 255, 255, 0.8); 
+            --hover-bg-color: rgba(255, 255, 255, 0.6); 
+            --carousel-bg: #ffffff;
+            --arrow-bg: rgba(0, 0, 0, 0.5);
+            --block-bg: rgba(255, 255, 255, 0.4);
+            --block-hover: rgba(255, 255, 255, 0.7);
+            --connection-color: #959595;
+        }
+
+        /* 全局 */
+        body {
+            font-family: 'Noto Sans TC', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--main-bg-color);
+            min-height: 90vh;
+            box-sizing: border-box;
+        }
+
+        /* 容器 */
+        .belex-joint-container {
+            display: flex;
+            width: 100%; 
+            max-width: auto; 
+            margin: 0 auto;
+            background-color: var(--main-bg-color);
+            border-radius: 10px;
+            overflow: visible;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        /* 連接線容器 */
+        .connection-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 8;
+        }
+
+        /* 左側導航 */
+        .belex-joint-left-menu-panel {
+            width: 18%; 
+            background-color: var(--left-menu-bg);
+            color: var(--left-menu-text-color);
+            padding: 30px 0 0 70px;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0; 
+            font-size: 0.95em; 
+            box-sizing: border-box;
+            overflow: visible;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* 左側標題 */
+        .belex-joint-left-menu-panel h3 {
+            text-transform: uppercase;
+            font-size: 26px; 
+            letter-spacing: 1px;
+            padding: 0 30px 15px;
+            margin-bottom: 20px;
+            color: var(--left-menu-text-color);
+            font-weight: 500; 
+        }
+
+        /* 菜單列表 */
+        .belex-joint-menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 菜單項容器  */
+        .belex-joint-menu-item-wrapper {
+            display: flex;
+            align-items: baseline;
+            width: 100%;
+        }
+
+        /* 菜單項  */
+        .belex-joint-menu-item {
+            padding: 12px 30px;
+            cursor: default;
+            transition: all 0.5s ease; 
+            display: flex;
+            align-items: baseline; 
+            font-weight: 400; 
+            white-space: nowrap; 
+            position: relative; 
+            margin-bottom: 5px; 
+            transform-origin: center; 
+            border-radius: 8px;
+            width: auto;
+            box-sizing: border-box;
+        }
+
+        .belex-joint-menu-item a {
+            cursor: inherit;
+        }
+
+        /* 菜單項懸停效果  */
+        .belex-joint-menu-item:hover {
+            transform: translateY(-3px); 
+            background-color: transparent;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        /* 菜單項激活狀態 */
+        .belex-joint-menu-item.active {
+            font-weight: 500; 
+            transform: translateY(-3px); 
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+
+        /* 菜單項數字 */
+        .belex-joint-menu-item span.belex-joint-number {
+            font-size: 1.1em;
+            color: var(--highlight-color);
+            margin-right: 15px; 
+            min-width: 20px; 
+            text-align: left;
+            position: relative;
+            top: -2px; 
+        }
+
+        /* 菜單項文字 */
+        .belex-joint-menu-item-text {
+            color: var(--left-menu-text-color); 
+            transition: color 0.5s ease;
+            font-size: 18px;
+            font-weight: 100;
+        }
+
+        /* 激活狀態文字顏色 */
+        .belex-joint-menu-item.active .belex-joint-menu-item-text {
+            color: var(--highlight-color); 
+            font-weight: 700; 
+        }
+
+
+        /* 中間人體模型容器 */
+        .belex-joint-center-human-panel {
+            flex: 60%; 
+            background-color: var(--main-bg-color);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            overflow: visible;
+            box-sizing: border-box;
+            z-index: 5;
+        }
+
+        /* 固定比例外層容器  */
+        .belex-joint-model-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 0 0 0px;
+        }
+
+        /* 比例維持 */
+        .belex-joint-model-container::after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+        }
+
+        /* 人體模型內層 */
+        .belex-joint-human-model-wrapper {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url('https://img.shoplineapp.com/media/image_clips/6892ce812578a40018ecc1ff/original.png?1754451583');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center top;
+        }
+
+        /* 紅點容器  */
+        .belex-joint-joint-container {
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+
+        /* 紅點樣式 */
+        .belex-joint-joint-hotspot {
+            width: 15px; 
+            height: 15px; 
+            background-color: rgba(255, 0, 0, 0.8); 
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px 3px rgba(255, 0, 0, 1.2);
+            animation: pulse-soft 0.7s infinite alternate;
+            z-index: 10; 
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        /* 紅點懸停效果 */
+        .belex-joint-joint-hotspot:hover {
+            transform: scale(1.2); 
+            box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.9);
+        }
+        /* 調整紅點位置以適應更大的圖片 */
+        .belex-joint-joint-container.shoulder { top: 19%; left: 57%; }
+        .belex-joint-joint-container.spine { top: 39.5%; left: 50%;  }
+        .belex-joint-joint-container.elbow { top: 21%; left: 38%; }
+        .belex-joint-joint-container.wrist-hand { top: 33.5%; left: 79%;  }
+        .belex-joint-joint-container.pelvic-hip { top: 49%; left: 47%;  }
+        .belex-joint-joint-container.knee { top: 61%; left: 67%; }
+        .belex-joint-joint-container.foot-ankle { top: 84%; left: 15%; }
+
+
+        /* 右側內容面板 */
+        .belex-joint-right-content-panel {
+            flex: 22%; 
+            background-color: var(--main-bg-color);
+            padding: 40px 80px 30px 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            overflow-y: auto; 
+            overflow-x: hidden;
+            word-break: break-all;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+        
+        /* New carousel wrapper for flex layout */
+        .belex-joint-carousel-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin: 20px auto 0;
+        }
+
+        /* 輪播箭頭 */
+        .belex-joint-carousel-arrow {
+            width: 35px;
+            height: 35px;
+            background-color: var(--arrow-bg);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            z-index: 10;
+            flex-shrink: 0;
+        }
+
+        /* 箭頭懸停效果 */
+        .belex-joint-carousel-arrow:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* 左箭頭位置 */
+        .belex-joint-carousel-prev {
+            margin-right: 15px;
+        }
+
+        /* 右箭頭位置  */
+        .belex-joint-carousel-next {
+            margin-left: 15px;
+        }
+
+        /* 內容顯示容器 */
+        .belex-joint-content-display {
+            padding: 0px 0px 0 0;
+            opacity: 0;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            transition: all 3s cubic-bezier(0.23, 1, 0.32, 1); /* 動畫效果 */
+            pointer-events: none;
+            visibility: hidden;
+            height: 0;
+            overflow: hidden;
+            /* 新增動畫起始狀態 */
+            will-change: opacity, transform;
+        }
+
+        /* 內容激活顯示 */
+        .belex-joint-content-display.active {
+            opacity: 1;
+            pointer-events: auto;
+            visibility: visible;
+            height: auto;
+            overflow: visible;
+            /* 新增動畫結束狀態 */
+            animation: content-fade-in 3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        /* 內容標題 */
+        .belex-joint-content-display h2 {
+            color: #333;
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin: 0 0 -30px 0;
+        }
+
+        /* 新增h3樣式 */
+        .belex-joint-content-display h3 {
+            color: #333;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.8;
+            font-family: sans-serif;
+            border-bottom: 1px solid #d7d7d7;
+            margin: 10px 0 40px 0;
+        }
+
+        /* 內容段落 */
+        .belex-joint-content-display p {
+            color: #666;
+            line-height: 1.6;
+            letter-spacing: 1px;
+            margin: 0 0 20px 0;
+            font-size: 1.1em;
+            text-align: justify;
+            font-weight: 100;
+        }
+
+        /* 內容列表 */
+        .belex-joint-content-display ul {
+            color: #666;
+            line-height: 1.8;
+            margin: 0 0 20px 25px;
+            font-size: 1em;
+            font-weight: 100;
+            min-height: 200px; /* 設定最小高度，內容多時會自動增長 */
+        }
+
+        /* 列表項 */
+        .belex-joint-content-display li {
+            margin-bottom: 10px;
+        }
+
+        /* 初始提示消息 */
+        .belex-joint-initial-message {
+            text-align: center;
+            color: #888;
+            font-size: 1.5em;
+            margin-top: 50px;
+        }
+
+        /* 輪播圖樣式 */
+        .belex-joint-carousel {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 0;
+            background-color: transparent;
+            overflow: hidden;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        /* 輪播內部容器 */
+        .belex-joint-carousel-inner {
+            display: flex;
+            height: 100%;  
+        }
+
+        /* 輪播項 */
+        .belex-joint-carousel-item {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 5px;
+        }
+
+        /* 輪播圖片 */
+        .belex-joint-carousel-item img {
+            max-width: 100%;
+            max-height: 100%;
+            width: 160px;
+            height: 160px;
+            object-fit: fill;
+            display: block;
+            border-radius: 5px;
+        }
+        
+        /* 輪播指示點容器 */
+        .belex-joint-carousel-indicators {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        /* 輪播指示點 */
+        .belex-joint-carousel-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* 激活的指示點 */
+        .belex-joint-carousel-dot.active {
+            background-color: #c64b4b;
+            transform: scale(1.2);
+        }
+
+        /* 響應式調整  */
+        @media (max-width: 1200px) {
+            .belex-joint-container {
+                flex-direction: column;
+                width: 98%;
+                max-width: 900px;
+            }
+            .belex-joint-menu-item-text {
+                font-size: 20px ;
+            }
+            .belex-joint-left-menu-panel {
+                width: 100%;
+                padding: 20px 0 0 100px;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .belex-joint-left-menu-panel h3 {
+                width: 100%;
+                text-align: center;
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+            }
+            
+            .belex-joint-menu-list {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                width: auto;
+                padding: 0 20px;
+            }
+            
+            .belex-joint-menu-item {
+                padding: 8px 15px;
+                font-size: 0.9em;
+                margin: 5px 10px;
+                border-radius: 5px;
+                flex-shrink: 0;
+                width: auto;
+            }
+            
+            .connection-container {
+                display: none; /* 在小屏幕上隱藏連接線 */
+            }
+
+            .belex-joint-center-human-panel {
+                flex: none;
+                width: 100%;
+                padding: 10px;
+                min-height: 550px;
+                overflow: visible;
+            }
+            
+            .belex-joint-model-container {
+                max-width: 550px;
+            }
+
+            .belex-joint-right-content-panel {
+                flex: none;
+                width: 100%;
+                padding: 25px 20px;
+                min-height: 300px;
+            }
+
+            .belex-joint-content-display h2 {
+                font-size: 1.8em;
+                margin-bottom: 10px;
+                line-height: 1.4;
+            }
+            
+            .belex-joint-content-display h3 {
+                font-size: 1.5em;
+                margin-bottom: 20px;
+            }
+            
+            .belex-joint-content-display p,
+            .belex-joint-content-display ul {
+                font-size: 1em;
+                line-height: 1.8;
+                margin-bottom: 18px;
+            }
+            
+            .belex-joint-carousel-wrapper {
+                 margin: 20px auto 0;
+            }
+            .belex-joint-carousel {
+                width: 100%;
+                max-width: 300px;
+                height: auto;
+                min-height: 150px;
+            }
+        }
+
+        /* 響應式調整  */
+        @media (max-width: 768px) {
+
+            /* 左側導航列  */
+            .belex-joint-left-menu-panel {
+                width: 100% !important;
+                box-sizing: border-box;
+                padding-left: 0;
+                padding-right: 0;
+            }
+            
+            .belex-joint-menu-list {
+                display: block;
+                width: 100%;
+            }
+        /* 內容顯示容器 */
+        .belex-joint-content-display {
+            padding: 0px 0px 0 0
+        }
+            /* 左側標題 */
+            .belex-joint-left-menu-panel h3 {
+                font-size: 26px ;
+                padding: 20px 15px ;
+            }
+            .belex-joint-joint-hotspot {
+                width: 12px;
+                height: 12px;
+                box-shadow: 0 0 5px 2px rgba(255, 0, 0, 0.6);
+                animation: pulse-soft-mobile 0.5s infinite alternate;
+            }
+            /* 右側內容面板 */
+             .belex-joint-right-content-panel {
+                padding: 0px 20px 20px 20px ; 
+             }
+
+         /* 右側標題 */
+             .belex-joint-content-display h2 {
+                color: #333;
+                margin: 0 0 -40px 0;
+                font-size: 30px; 
+                font-weight: 900;
+                padding-left: 20px;
+            }
+            /* 右側h3 */
+            .belex-joint-content-display h3 {
+                color: #333;
+                font-size: 22px;
+                font-weight: 700;
+                font-family: sans-serif;
+                padding-left: 20px;
+            }
+          /* 右側內容 */
+         .belex-joint-content-display p {
+                color: #666;
+                line-height: 1.8;
+                margin: 0 0 20px 0;
+                font-size: 18px ;
+                padding: 0px 20px 0 20px;
+            }
+            /* 右側產品特點 */
+        .belex-joint-content-display ul {
+            color: #666;
+            line-height: 1.8;
+            margin: 0 0 20px 20px;
+            font-size: 18px;
+            padding: 0px 20px 0 20px;
+        }
+            /* 人體外層 */
+        .belex-joint-center-human-panel {
+            padding: 40px 0 ;
+            min-height: auto;
+        }
+
+            .belex-joint-carousel {
+                position: relative;
+                width: 160px;
+                height: 160px;
+                margin: 0;
+                border-radius: 5px;
+            }
+            
+            .belex-joint-carousel-wrapper {
+                margin: 20px auto 0;
+            }
+
+            .belex-joint-carousel-arrow {
+                width: 32px;
+                height: 32px;
+                font-size: 14px;
+            }
+
+            .belex-joint-menu-item {
+                font-size: 0.9em;
+                padding: 10px 10px;
+                width: calc(100% - 20px);
+                box-sizing: border-box;
+                width: auto;
+            }
+            
+            /* 手機版激活狀態調整  */
+            .belex-joint-menu-item.active {
+                transform: translateY(-3px);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            }
+            
+            /* 手機版懸停效果 -  */
+            .belex-joint-menu-item:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            }
+            
+            .belex-joint-initial-message {
+                font-size: 1.2em;
+                padding: 0 20px;
+            }
+            .belex-joint-content-display {
+                /* 保持動畫設定 */
+                transition: all 3s cubic-bezier(0.23, 1, 0.32, 1);
+                will-change: opacity, transform;
+            }
+            .belex-joint-content-display.active {
+                animation: content-fade-in 3s cubic-bezier(0.23, 1, 0.32, 1);
+            }
+        }
+
+        /* 動畫效果 - 電腦紅點脈動 */
+        @keyframes pulse-soft {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.8;
+                box-shadow: 0 0 10px 3px rgba(255, 0, 0, 0.7);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+                box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.9);
+            }
+        }
+
+        /* 動畫效果 - 手機版紅點脈動 */
+        @keyframes pulse-soft-mobile {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.8;
+                box-shadow: 0 0 5px 2px rgba(255, 0, 0, 0.7);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+                box-shadow: 0 0 8px 3px rgba(255, 0, 0, 0.9);
+            }
+        }
+
+        /* 電腦/手機皆適用的動畫 keyframes */
+        @keyframes content-fade-in {
+            0% {
+                opacity: 0;
+                
+            }
+            100% {
+                opacity: 1;
+                
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="belex-joint-container">
+        <div class="connection-container">
+            <svg id="connection-svg" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <path id="connection-line" d="" stroke="var(--connection-color)" stroke-width="1" fill="none" />
+            </svg>
+        </div>
+
+        <div class="belex-joint-left-menu-panel">
+            <h3>產品<br>PRODUCTS</h3>
+            <ul class="belex-joint-menu-list">
+                <li class="belex-joint-menu-item-wrapper">
+                    <div class="belex-joint-menu-item" data-target="shoulder">
+                        <a href="https://www.belexmedical.com/categories/shoulder-joint" style="display: flex; align-items: baseline; text-decoration: none; color: inherit; width: 100%;">
+                            <span class="belex-joint-number">01</span>
+                            <span class="belex-joint-menu-item-text">肩關節 Shoulder Joint</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="belex-joint-menu-item-wrapper">
+                    <div class="belex-joint-menu-item" data-target="spine">
+                        <a href="https://www.belexmedical.com/categories/thoracolumbar-joint" style="display: flex; align-items: baseline; text-decoration: none; color: inherit; width: 100%;">
+                            <span class="belex-joint-number">02</span>
+                            <span class="belex-joint-menu-item-text">胸腰關節 Thoracolumbar Joint</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="belex-joint-menu-item-wrapper">
+                    <div class="belex-joint-menu-item" data-target="elbow">
+                        <a href="https://www.belexmedical.com/categories/elbow-joint" style="display: flex; align-items: baseline; text-decoration: none; color: inherit; width: 100%;">
+                            <span class="belex-joint-number">03</span>
+                            <span class="belex-joint-menu-item-text">肘關節 Elbow Joint</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="belex-joint-menu-item-wrapper">
+                    <div class="belex-joint-menu-item" data-target="wrist-hand">
+                        <a href="https://www.belexmedical.com/categories/wrist-hand-joint" style="display: flex; align-items: baseline; text-decoration: none; color: inherit; width: 100%;">
+                            <span class="belex-joint-number">04</span>
+                            <span class="belex-joint-menu-item-text">手腕關節 Wrist Joint</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="belex-joint-menu-item-wrapper">
+                    <div class="belex-joint-menu-item" data-target="pelvic-hip">
+                        <a href="https://www.belexmedical.com/categories/hip-joint" style="display: flex; align-items: baseline; text-decoration: none; color: inherit; width: 100%;">
+                            <span class="belex-joint-number">05</span>
+                            <span class="belex-joint-menu-item-text">髖關節 Hip Joint </span>
+                        </a>
+                    </div>
+                </li>
+                <li class="belex-joint-menu-item-wrapper">
+                    <div class="belex-joint-menu-item" data-target="knee">
+                        <a href="https://www.belexmedical.com/categories/knee-joint" style="display: flex; align-items: baseline; text-decoration: none; color: inherit; width: 100%;">
+                            <span class="belex-joint-number">06</span>
+                            <span class="belex-joint-menu-item-text">膝關節 Knee Joint</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="belex-joint-menu-item-wrapper">
+                    <div class="belex-joint-menu-item" data-target="foot-ankle">
+                        <a href="https://www.belexmedical.com/categories/foot-ankle-joint" style="display: flex; align-items: baseline; text-decoration: none; color: inherit; width: 100%;">
+                            <span class="belex-joint-number">07</span>
+                            <span class="belex-joint-menu-item-text">腳踝關節 Foot & Ankle Joint</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="belex-joint-center-human-panel">
+            <div class="belex-joint-model-container">
+                <div class="belex-joint-human-model-wrapper"></div>
+                
+                <div class="belex-joint-joint-container shoulder" data-joint="shoulder">
+                    <div class="belex-joint-joint-hotspot"></div>
+                </div>
+                <div class="belex-joint-joint-container spine" data-joint="spine">
+                    <div class="belex-joint-joint-hotspot"></div>
+                </div>
+                <div class="belex-joint-joint-container elbow" data-joint="elbow">
+                    <div class="belex-joint-joint-hotspot"></div>
+                </div>
+                <div class="belex-joint-joint-container wrist-hand" data-joint="wrist-hand">
+                    <div class="belex-joint-joint-hotspot"></div>
+                </div>
+                <div class="belex-joint-joint-container pelvic-hip" data-joint="pelvic-hip">
+                    <div class="belex-joint-joint-hotspot"></div>
+                </div>
+                <div class="belex-joint-joint-container knee" data-joint="knee">
+                    <div class="belex-joint-joint-hotspot"></div>
+                </div>
+                <div class="belex-joint-joint-container foot-ankle" data-joint="foot-ankle">
+                    <div class="belex-joint-joint-hotspot"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="belex-joint-right-content-panel">
+            <div class="belex-joint-initial-message" id="initialMessage">
+                請點擊左側導航選單或人體模型上的紅點，以查看相應的關節資訊。
+            </div>
+
+            <div class="belex-joint-content-display" id="content-shoulder"></div>
+            <div class="belex-joint-content-display" id="content-spine"></div>
+            <div class="belex-joint-content-display" id="content-elbow"></div>
+            <div class="belex-joint-content-display" id="content-wrist-hand"></div>
+            <div class="belex-joint-content-display" id="content-pelvic-hip"></div>
+            <div class="belex-joint-content-display" id="content-knee"></div>
+            <div class="belex-joint-content-display" id="content-foot-ankle"></div>
+
+        </div>
+    </div>
+
+    <script>
+        /**
+         * Dynamically populates the content for all joint sections based on the jointContentData object.
+         */
+        function populateAllContent() {
+            for (const jointId in jointContentData) {
+                const contentData = jointContentData[jointId];
+                const container = document.getElementById(`content-${jointId}`);
+                if (!container || !contentData) continue;
+
+                // Generate single-image display HTML
+                let carouselHTML = '';
+                if (contentData.carousel && contentData.carousel.length > 0) {
+                    const image = contentData.carousel[0]; // Use only the first image
+                    carouselHTML = `
+                        <div class="belex-joint-carousel-wrapper">
+                            <button class="belex-joint-carousel-arrow belex-joint-carousel-prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <div class="belex-joint-carousel" data-carousel="${jointId}">
+                                <div class="belex-joint-carousel-inner">
+                                    <div class="belex-joint-carousel-item">
+                                        <a href="${image.link}">
+                                            <img src="${image.src}" alt="${image.alt}">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="belex-joint-carousel-arrow belex-joint-carousel-next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    `;
+                }
+
+
+                // Generate features list HTML
+                const featuresHTML = contentData.features.map(feature => `<li>${feature}</li>`).join('');
+
+                // Combine all HTML and inject it into the container
+                container.innerHTML = `
+                    <h2>${contentData.title}</h2>
+                    <h3>${contentData.subtitle}</h3>
+                    <p>${contentData.description}</p>
+                    <p>${contentData.featuresTitle}</p>
+                    <ul>
+                        ${featuresHTML}
+                    </ul>
+                    ${carouselHTML}
+                `;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Populate content before initializing other interactive elements
+            populateAllContent();
+            
+            const jointContainers = document.querySelectorAll('.belex-joint-joint-container');
+            const menuItems = document.querySelectorAll('.belex-joint-menu-item');
+            const contentDisplays = document.querySelectorAll('.belex-joint-content-display');
+            const initialMessage = document.getElementById('initialMessage');
+            const connectionLine = document.getElementById('connection-line');
+            const rightPanel = document.querySelector('.belex-joint-right-content-panel');
+            const jointOrder = ['shoulder', 'spine', 'elbow', 'wrist-hand', 'pelvic-hip', 'knee', 'foot-ankle'];
+
+            let animationTimeout = null;
+            // A global reference to the currently active animation listener to prevent duplicates.
+            let activeLineListener = null;
+            let hoverTimeout = null; // Timeout for hover delay
+            const HOVER_DELAY = 250; //  delay
+
+
+            function handleJointInteraction(targetId) {
+                // Clear any pending animation to prevent it from starting
+                clearTimeout(animationTimeout);
+
+                const menuItem = document.querySelector(`.belex-joint-menu-item[data-target="${targetId}"]`);
+                const jointElement = document.querySelector(`.belex-joint-joint-container[data-joint="${targetId}"]`);
+                
+                if (menuItem && jointElement) {
+                    // Update UI content immediately
+                    activateMenuItem(targetId);
+                    showContent(targetId);
+
+                    // Animate line with a delay
+                    if (window.innerWidth > 1200) {
+                        animationTimeout = setTimeout(() => {
+                           animateLineConnectionAndDisappearance(jointElement.querySelector('.belex-joint-joint-hotspot'), menuItem);
+                        }, 0); // Changed delay to 0 since the interaction itself is delayed
+                    }
+                }
+            }
+
+            function showContent(targetId) {
+                initialMessage.style.display = 'none';
+                contentDisplays.forEach(content => {
+                    content.classList.remove('active');
+                });
+                const targetContent = document.getElementById(`content-${targetId}`);
+                if (targetContent) {
+                    targetContent.classList.add('active');
+                }
+            }
+
+            function activateMenuItem(targetId) {
+                menuItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+                const targetMenuItem = document.querySelector(`.belex-joint-menu-item[data-target="${targetId}"]`);
+                if (targetMenuItem) {
+                    targetMenuItem.classList.add('active');
+                }
+                return targetMenuItem;
+            }
+            
+            function animateLineConnectionAndDisappearance(jointElement, menuItemElement) {
+                // If there's an old listener from a previous animation, remove it to prevent it from firing unexpectedly.
+                if (activeLineListener) {
+                    connectionLine.removeEventListener('transitionend', activeLineListener);
+                }
+
+                // This is the handler that will run *after* the line has finished drawing.
+                const onDrawComplete = (event) => {
+                    // We only care about the transition for the 'stroke-dashoffset' property ending on our line element.
+                    if (event.target !== connectionLine || event.propertyName !== 'stroke-dashoffset') {
+                        return;
+                    }
+                    
+                    // Clean up: remove this listener so it doesn't fire for the disappearance animation.
+                    connectionLine.removeEventListener('transitionend', onDrawComplete);
+                    activeLineListener = null; // Clear the global reference
+
+                    // --- DISAPPEARING PHASE ---
+                    // Set the transition for the line to disappear.
+                    connectionLine.style.transition = 'stroke-dashoffset 0.5s ease-in';
+                    
+                    // =========================================================================
+                    // === ✨ FIX: Animate offset to NEGATIVE length for retraction effect. ===
+                    // This makes the line disappear from the menu item back towards the red dot.
+                    // =========================================================================
+                    connectionLine.style.strokeDashoffset = -connectionLine.getTotalLength();
+                };
+                
+                // Store the new listener in the global reference.
+                activeLineListener = onDrawComplete;
+
+                // 1. Reset styles and cancel any ongoing transitions.
+                connectionLine.style.transition = 'none';
+                
+                // 2. Calculate coordinates and set the new path for the line.
+                const jointRect = jointElement.getBoundingClientRect();
+                const menuRect = menuItemElement.getBoundingClientRect();
+                const containerRect = document.querySelector('.belex-joint-container').getBoundingClientRect();
+                const leftMenuPanelRect = document.querySelector('.belex-joint-left-menu-panel').getBoundingClientRect();
+                
+                const jointX = jointRect.left + jointRect.width / 2 - containerRect.left;
+                const jointY = jointRect.top + jointRect.height / 2 - containerRect.top;
+                // FIX: Connect the line to the right edge of the entire left panel for a stable anchor point,
+                // ensuring it aligns correctly regardless of screen width.
+                const menuX = leftMenuPanelRect.right - containerRect.left;
+                const menuY = menuRect.top + menuRect.height / 2 - containerRect.top;
+
+                const path = `M ${jointX} ${jointY} L ${menuX} ${menuY}`;
+                connectionLine.setAttribute('d', path);
+                
+                // 3. Use requestAnimationFrame to ensure the new path is rendered before we animate it.
+                requestAnimationFrame(() => {
+                    const pathLength = connectionLine.getTotalLength();
+                    if (pathLength === 0) return;
+
+                    // --- SETUP FOR DRAWING ---
+                    // Set the line to be a single dash equal to its total length.
+                    connectionLine.style.strokeDasharray = pathLength;
+                    // Offset the dash so the line is initially invisible.
+                    connectionLine.style.strokeDashoffset = pathLength;
+                    
+                    // Force the browser to apply the above styles before starting the transition.
+                    connectionLine.getBoundingClientRect(); 
+
+                    // Add the listener that will trigger the disappearance animation once drawing is complete.
+                    connectionLine.addEventListener('transitionend', activeLineListener);
+
+                    // --- START DRAWING ---
+                    // Define the transition for the drawing animation.
+                    connectionLine.style.transition = `stroke-dashoffset 0.5s ease-out`;
+                    // Set the final dash offset to 0, which will animate the line into view.
+                    connectionLine.style.strokeDashoffset = '0';
+                });
+            }
+
+            // --- Event Listeners ---
+
+            jointContainers.forEach(container => {
+                container.addEventListener('mouseenter', function() {
+                    clearTimeout(hoverTimeout);
+                    const jointType = this.dataset.joint;
+                    hoverTimeout = setTimeout(() => {
+                        handleJointInteraction(jointType);
+                    }, HOVER_DELAY);
+                });
+                container.addEventListener('mouseleave', function() {
+                    clearTimeout(hoverTimeout);
+                });
+            });
+
+            menuItems.forEach(menuItem => {
+                menuItem.addEventListener('mouseenter', function() {
+                    clearTimeout(hoverTimeout);
+                    const targetId = this.dataset.target;
+                    hoverTimeout = setTimeout(() => {
+                        handleJointInteraction(targetId);
+                    }, HOVER_DELAY);
+                });
+                menuItem.addEventListener('mouseleave', function() {
+                    clearTimeout(hoverTimeout);
+                });
+                
+                menuItem.addEventListener('click', function(e) {
+                    clearTimeout(hoverTimeout); // Cancel any pending hover action
+                    handleJointInteraction(this.dataset.target);
+                });
+            });
+
+            // New: Arrow navigation for joint categories
+            rightPanel.addEventListener('click', function(e) {
+                const prevArrow = e.target.closest('.belex-joint-carousel-prev');
+                const nextArrow = e.target.closest('.belex-joint-carousel-next');
+
+                if (!prevArrow && !nextArrow) return;
+
+                const currentActive = document.querySelector('.belex-joint-menu-item.active');
+                if (!currentActive) return;
+
+                const currentJointId = currentActive.dataset.target;
+                const currentIndex = jointOrder.indexOf(currentJointId);
+
+                if (currentIndex === -1) return;
+
+                let newIndex;
+                if (nextArrow) {
+                    newIndex = (currentIndex + 1) % jointOrder.length;
+                } else { // prevArrow must be clicked
+                    newIndex = (currentIndex - 1 + jointOrder.length) % jointOrder.length;
+                }
+                const newJointId = jointOrder[newIndex];
+                handleJointInteraction(newJointId);
+            });
+            
+            window.addEventListener('resize', function() {
+                // On resize, just hide the line. It will be redrawn on the next user interaction.
+                clearTimeout(animationTimeout);
+                connectionLine.style.transition = 'none';
+                connectionLine.setAttribute('d', '');
+
+                const activeMenuItem = document.querySelector('.belex-joint-menu-item.active');
+                if (activeMenuItem) {
+                    showContent(activeMenuItem.dataset.target);
+                }
+            });
+
+            // Initial setup
+            const defaultTarget = 'shoulder';
+            const defaultMenuItem = activateMenuItem(defaultTarget);
+            showContent(defaultTarget);
+            initialMessage.style.display = 'none';
+
+            if (defaultMenuItem && window.innerWidth > 1200) {
+                const defaultJoint = document.querySelector(`.belex-joint-joint-container[data-joint="${defaultTarget}"]`);
+                if (defaultJoint) {
+                    setTimeout(() => {
+                        animateLineConnectionAndDisappearance(defaultJoint.querySelector('.belex-joint-joint-hotspot'), defaultMenuItem);
+                    }, 500);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
